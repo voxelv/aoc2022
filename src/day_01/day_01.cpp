@@ -4,22 +4,12 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
+#include "aoc.h"
 
 using namespace std;
 
 int main() {
-
-  auto lines = vector<string>{};
-  auto input_file = ifstream("input/input.txt");
-  if(!input_file){
-    cout << "Error opening input file!" << endl;
-    return(EXIT_FAILURE);
-  }
-  string line;
-  while(getline(input_file, line)) {
-    lines.push_back(line);
-  }
-
+  auto lines = aoc::get_lines("input/input.txt");
 
   vector<uint32_t> elf_calories;
   uint32_t calories{};

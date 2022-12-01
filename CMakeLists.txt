@@ -20,4 +20,8 @@ endfunction()
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_subdirectory(src/1)
+# Libraries
+add_subdirectory(lib/aoc)
+
+# Sources
+add_subdirectory(src/day_01)
