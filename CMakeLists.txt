@@ -27,3 +27,4 @@ add_subdirectory(lib/aoc)
 # Sources
 add_subdirectory(src/day_01)
 add_subdirectory(src/day_02)
+add_subdirectory(src/day_03)
