@@ -56,12 +56,8 @@ int main() {
 
   uint32_t fully_contained_count{};
   for(const auto& elf_pair : elf_pairs) {
-    if(elf_pair.get_elf_min(0) <= elf_pair.get_elf_min(1) && elf_pair.get_elf_max(0) >= elf_pair.get_elf_max(1)) {
-      // elf 1 is contained in elf 0
-      fully_contained_count++;
-    }
-    else if(elf_pair.get_elf_min(1) <= elf_pair.get_elf_min(0) && elf_pair.get_elf_max(1) >= elf_pair.get_elf_max(0)) {
-      // elf 0 is contained in elf 1
+    if(elf_pair.get_elf_min(0) <= elf_pair.get_elf_min(1) && elf_pair.get_elf_max(0) >= elf_pair.get_elf_max(1)
+    || elf_pair.get_elf_min(1) <= elf_pair.get_elf_min(0) && elf_pair.get_elf_max(1) >= elf_pair.get_elf_max(0)) {
       fully_contained_count++;
     }
   }
@@ -69,9 +65,8 @@ int main() {
 
   uint32_t overlapping_count{};
   for(const auto& elf_pair : elf_pairs) {
-    if(elf_pair.get_elf_min(0) < elf_pair.get_elf_min(1) && elf_pair.get_elf_max(0) < elf_pair.get_elf_min(1)) {
-      // not overlapping
-    } else if(elf_pair.get_elf_min(0) > elf_pair.get_elf_max(1) && elf_pair.get_elf_max(0) > elf_pair.get_elf_max(1)) {
+    if(elf_pair.get_elf_min(0) < elf_pair.get_elf_min(1) && elf_pair.get_elf_max(0) < elf_pair.get_elf_min(1)
+    || elf_pair.get_elf_min(0) > elf_pair.get_elf_max(1) && elf_pair.get_elf_max(0) > elf_pair.get_elf_max(1)) {
       // not overlapping
     } else {
       // overlapping
