@@ -9,10 +9,13 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <span>
 
 namespace aoc {
 
 std::vector<std::string> get_lines(const std::string& input_file);
+
+void tokenize_on_delim(const std::string& input, const std::string& delimiter, std::vector<std::string>& tokens_out);
 
 } // aoc
 
