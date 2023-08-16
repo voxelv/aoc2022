@@ -57,7 +57,6 @@ struct Stacks {
   }
 
   void part2_move(uint32_t num_to_move, uint32_t from_stack, uint32_t to_stack) {
-//    move(stacks.at(from_stack-1).end() - static_cast<int>(num_to_move), stacks.at(from_stack-1).end(), stacks.at(to_stack-1).end());
     auto& v2 = stacks.at(to_stack-1);
     auto& v1 = stacks.at(from_stack-1);
     v2.insert(v2.end(), make_move_iterator(v1.end() - static_cast<int>(num_to_move)), make_move_iterator(v1.end()));
