@@ -138,7 +138,22 @@ int main() {
       total += size;
     }
   }
-  cout << "total of dirs >100K: " << total << endl;
+  cout << "total of dirs <= 100K: " << total << endl;
+
+  int total_size = 70000000;
+  int required_size = 30000000;
+  int used = root.get_total_size();
+  int find_at_least = required_size - (total_size - used);
+
+  int closest = total_size;
+  for(const auto& dir : all_dirs) {
+    int size = dir->get_total_size();
+    int diff = size - find_at_least;
+    if(size >= find_at_least && diff < (closest - find_at_least)) {
+      closest = size;
+    }
+  }
+  cout << "closest dir size: " << closest << endl;
 
   return EXIT_SUCCESS;
 }
